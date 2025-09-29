@@ -82,22 +82,22 @@ if __name__ == "__main__":
     sbert = SentenceTransformer("all-mpnet-base-v2", device="cuda")
     print("SentenceTransformers loaded")
 
-    dataset_name = "multinews"
+    dataset_name = "arxiv"
     token_type = "noun"
 
-    save_file = "../data/%s_graph_%s_sentem.json" % (dataset_name, token_type)
+    save_file = "/content/HGSum2909/data/%s_graph_%s_sentem.json" % (dataset_name, token_type)
     if os.path.exists(save_file):
         os.remove(save_file)
 
     all_count = 0
-    with jsonlines.open("../data/%s_graph_%s.json" % (dataset_name, token_type)) as reader:
+    with jsonlines.open("/content/HGSum2909/data/%s_graph_%s.json" % (dataset_name, token_type)) as reader:
         for sample in reader:
             all_count += 1
 
     start_time = time.time()
     samples = []
     index = 0
-    with jsonlines.open("../data/%s_graph_%s.json" % (dataset_name, token_type)) as reader:
+    with jsonlines.open("/content/HGSum2909/data/%s_graph_%s.json" % (dataset_name, token_type)) as reader:
         for sample in reader:
             samples.append(sample)
             index += 1

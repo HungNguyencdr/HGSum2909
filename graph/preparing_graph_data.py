@@ -12,8 +12,8 @@ import functools
 import spacy
 import sys
 
-#sys.path.append("/kaggle/working/HGSum")
-sys.path.append("../../")
+sys.path.append("/content/HGSum2909/")
+#sys.path.append("../../")
 from utils.metrics import rouge
 from model.dataloading import concatenate_documents, tokenize_tgs
 
@@ -210,12 +210,12 @@ if __name__ == "__main__":
     tokenizer.add_tokens(["<sent-sep>"])
     sentsep_token_id = tokenizer.convert_tokens_to_ids("<sent-sep>")
 
-    save_file = "../data/%s_graph_%s.json" % (dataset_name, token_type)
+    save_file = "/content/HGSum2909/data/%s_graph_%s.json" % (dataset_name, token_type)
     if os.path.exists(save_file):
         os.remove(save_file)
 
     samples = []
-    with jsonlines.open("../../datasets/%s.json" % dataset_name) as reader:
+    with jsonlines.open("/content/HGSum2909/datasets/%s.json" % dataset_name) as reader:
         for sample in reader:
             samples.append(sample)
     random.seed(42)
