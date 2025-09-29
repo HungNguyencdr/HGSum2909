@@ -4,4 +4,4 @@ transformers==4.24.0
 spacy==3.3.1
 nltk==3.7
 sentence-transformers==2.2.2
-torch-geometrics==2.0.4
+torch_geometric==2.0.4
